@@ -108,11 +108,68 @@ namespace XamarinAndroidOxyPlot
         }
         private PlotModel ViewModel3()
         {
-            throw new System.NotImplementedException();
+            PlotModel model = new PlotModel {Title = "Title"};
+            PieSeries ps = new PieSeries
+            {
+                StrokeThickness = 2.0,
+                InsideLabelPosition = 0.8,
+                AngleSpan = 360,
+                StartAngle = 0
+            };
+            ps.Slices.Add(new PieSlice("Africa", 1030){IsExploded = false, Fill = OxyColors.PaleVioletRed});
+            ps.Slices.Add(new PieSlice("Americas", 929){IsExploded = true});
+            ps.Slices.Add(new PieSlice("Asia", 4157) { IsExploded = true });
+            ps.Slices.Add(new PieSlice("Europa", 739) { IsExploded = true });
+            ps.Slices.Add(new PieSlice("Oceania", 35) { IsExploded = true });
+
+           model.Series.Add(ps);
+            return model;
         }
         private PlotModel ViewModel4()
         {
-            throw new System.NotImplementedException();
+            var model4 = new PlotModel
+            {
+                Title = "Title",
+                LegendPlacement = LegendPlacement.Outside,
+                LegendPosition = LegendPosition.BottomCenter,
+                LegendOrientation = LegendOrientation.Horizontal,
+                LegendBorderThickness = 0
+            };
+            var s1 = new BarSeries() {Title = "2015", StrokeColor = OxyColors.Black, FillColor = OxyColors.BlueViolet,StrokeThickness = 1};
+            s1.Items.Add(new BarItem {Value= 25});
+            s1.Items.Add(new BarItem { Value = 137});
+            s1.Items.Add(new BarItem { Value = 18});
+            s1.Items.Add(new BarItem { Value = 40});
+
+            var s2 = new BarSeries() { Title = "2016", Background = OxyColors.Gold,StrokeColor = OxyColors.Blue,  StrokeThickness = 1};
+            s2.Items.Add(new BarItem { Value = 12});
+            s2.Items.Add(new BarItem { Value = 14});
+            s2.Items.Add(new BarItem { Value = 120});
+            s2.Items.Add(new BarItem { Value = 26});
+
+            var categoryAxis = new CategoryAxis {Position = AxisPosition.Left};
+            categoryAxis.Labels.Add("Tablets");
+            categoryAxis.Labels.Add("PCs");
+            categoryAxis.Labels.Add("Cameras");
+            categoryAxis.Labels.Add("Laptops");
+
+            var valueAxis = new LinearAxis()
+            {
+                Position = AxisPosition.Bottom,
+                MinimumPadding = 0,
+                MaximumPadding = 0.06,
+                AbsoluteMaximum = 0,
+                Minimum = 0,
+                Maximum = 150
+            };
+
+            model4.Series.Add(s1);
+            model4.Series.Add(s2);
+
+            model4.Axes.Add(categoryAxis);
+            model4.Axes.Add(valueAxis);
+
+            return model4;
         }
     }
 }
