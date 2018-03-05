@@ -24,7 +24,7 @@ namespace XamarinAndroidOxyPlot
             {
                 Title = "OxyPlot Demo"
             };
-            plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
+            plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom});
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Maximum = 10, Minimum = 0 });
 
             var series1 = new LineSeries
