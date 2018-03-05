@@ -2,9 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="#d9c79f"
     android:layout_height="match_parent">
-    <OxyPlot.Xamarin.Android.PlotView
-        android:id="@+id/plot_view"
+    <Button
+        android:text="Button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:id="@+id/button1" />
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2" />
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3" />
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4" />
+    <OxyPlot.Xamarin.Android.PlotView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/oxyplotView1" />
 </LinearLayout>
