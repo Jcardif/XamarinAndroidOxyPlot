@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Widget;
 using Android.OS;
 using OxyPlot;
@@ -36,31 +37,17 @@ namespace XamarinAndroidOxyPlot
             view.Model = ViewModel4();
         }
 
-        private PlotModel ViewModel4()
-        {
-            throw new System.NotImplementedException();
-        }
+      
 
         private void Btn3_Click(object sender, System.EventArgs e)
         {
             view.Model = ViewModel3();
         }
 
-        private PlotModel ViewModel3()
-        {
-            throw new System.NotImplementedException();
-        }
-
         private void Btn2_Click(object sender, System.EventArgs e)
         {
             view.Model = ViewModel2();
         }
-
-        private PlotModel ViewModel2()
-        {
-            throw new System.NotImplementedException();
-        }
-
 
         private void Btn1_Click(object sender, System.EventArgs e)
         {
@@ -92,6 +79,40 @@ namespace XamarinAndroidOxyPlot
 
             plotModel.Series.Add(series1);
             return plotModel;
+        }
+        private PlotModel ViewModel2()
+        {
+            PlotModel myModel = new PlotModel { Title = "Title"};
+            var ls = new LineSeries()
+            {
+                Color = OxyColors.Blue,
+                MarkerType = MarkerType.Circle, 
+                MarkerSize = 3,
+                MarkerStroke = OxyColors.White,
+                MarkerStrokeThickness = 1.0
+            };
+            //(sin(x)+sin(3x)/3+sin(5x)/5+...");
+            int n= 10;
+            for (double x = -10; x < 10; x+=0.2)
+            {
+                double y = 0;
+                for (int i = 0 ; i < n; i++)
+                {
+                    int j = i * 2 + 1;
+                    y += Math.Sin(j * x) / j;
+                }
+                ls.Points.Add(new DataPoint(x,y));
+            }
+            myModel.Series.Add(ls);
+            return myModel;
+        }
+        private PlotModel ViewModel3()
+        {
+            throw new System.NotImplementedException();
+        }
+        private PlotModel ViewModel4()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
